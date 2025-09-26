@@ -78,6 +78,7 @@ export const globalStyles = StyleSheet.create({
   
   inputError: {
     borderColor: COLORS.error,
+    borderWidth: 1,
   },
   
   textArea: {
