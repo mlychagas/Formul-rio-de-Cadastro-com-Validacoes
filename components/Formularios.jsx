@@ -282,10 +282,11 @@ export default function Formularios() {
 
 
     const handleSubmit = () => {
-
+        
         const isNomeValid = validateNome(nome);
         const isDataValid = validateDataNascimento(dataNascimento);
         const isCpfValid = validateCpf(cpf);
+        const isTelefoneValid = validateTelefone(telefone);
         const isCelularValid = validateCelular(celular);
         const isEmailValid = validateEmail(email);
         const isSenhaValid = validateSenha(senha);
@@ -295,25 +296,37 @@ export default function Formularios() {
         const isNumeroValid = validateNumero(numero);
         const isCidadeValid = validateCidade(cidade);
         const isEstadoValid = validateEstado(estado);
-        let isFormularioValido = isNomeValid && isDataValid && isCpfValid && isCelularValid && isEmailValid && isSenhaValid && isConfSenhaValid && isCepValid && isEnderecoValid && isNumeroValid && isCidadeValid && isEstadoValid;
+
+        let isFormularioValido = 
+        isNomeValid && 
+        isDataValid && 
+        isCpfValid && 
+        isTelefoneValid && 
+        isCelularValid && 
+        isEmailValid && 
+        isSenhaValid && 
+        isConfSenhaValid && 
+        isCepValid && 
+        isEnderecoValid && 
+        isNumeroValid && 
+        isCidadeValid && 
+        isEstadoValid;
 
         // se for menor de idade, valida também os campos dos pais
         if (idade > 0 && idade < 18) {
             const isPaiValid = validateNomePai(pai);
             const isMaeValid = validateNomeMae(mae);
-            if (!isPaiValid || !isMaeValid) {
-                isFormularioValido = false; // Se os campos dos pais forem inválidos, o formulário todo é inválido
-            }
+            isFormularioValido = isFormularioValido && isPaiValid && isMaeValid; 
         }
 
         // verifica o resultado final
         if (isFormularioValido) {
             // Coleta todos os dados, não apenas alguns
-            const dados = { nome, dataNascimento, cpf, celular, email, cep, endereco, numero, cidade, estado };
+            const dados = { nome, dataNascimento, cpf, telefone, celular, email, cep, endereco, numero, cidade, estado, pai, mae };
             console.log("Dados do formulário válidos", dados);
-            Alert.alert("Sucesso!", "Formulário enviado.");
+            alert("Sucesso! Formulário enviado.");
         } else {
-            Alert.alert("Erro!", "Por favor, verifique os campos destacados.");
+            alert("Erro! Por favor, verifique os campos destacados.");
         }
     };
 
