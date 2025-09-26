@@ -321,7 +321,6 @@ export default function Formularios() {
 
         // verifica o resultado final
         if (isFormularioValido) {
-            // Coleta todos os dados, não apenas alguns
             const dados = { nome, dataNascimento, cpf, telefone, celular, email, cep, endereco, numero, cidade, estado, pai, mae };
             console.log("Dados do formulário válidos", dados);
             alert("Sucesso! Formulário enviado.");
