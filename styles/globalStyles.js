@@ -55,6 +55,16 @@ export const globalStyles = StyleSheet.create({
   inputContainer: {
     marginBottom: 15,
   },
+  inputLabel: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#444', 
+        marginBottom: 7, 
+    },
+  inputGroup: {
+        width: '100%',
+        marginBottom: 15, 
+    },
   
   input: {
     borderWidth: 1,
@@ -104,6 +114,16 @@ export const globalStyles = StyleSheet.create({
     fontSize: 12,
     marginTop: 5,
     marginLeft: 5,
+  },
+  sectionContainer: {
+        width: '100%', 
+        marginBottom: 20, 
+  },
+  sectionTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 10, 
+        color: '#333', 
   },
 });
 
